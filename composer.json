@@ -1,0 +1,23 @@
+{
+    "name": "arnaud/design-pattern",
+    "description": "PHP design pattern implementation",
+    "authors": [
+        {
+            "name": "Arnaud Lefèvre",
+            "email": "arnaud.h.lefevre@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "": "src" }
+    },
+    "autoload-dev": {
+        "psr-0": { "": "tests" }
+    },
+    "require": {
+        "php": ">=5.4.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~3.7"
+    },
+    "minimum-stability": "stable"
+}
