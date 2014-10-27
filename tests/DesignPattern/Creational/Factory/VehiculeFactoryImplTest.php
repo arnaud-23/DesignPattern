@@ -26,6 +26,6 @@ class VehiculeFactoryImplTest extends \PHPUnit_Framework_TestCase
      */
     public function make_WithWrongVehicule()
     {
-        $factory = VehiculeFactoryImpl::make('twingo');
+        VehiculeFactoryImpl::make('twingo');
     }
 }
