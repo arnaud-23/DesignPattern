@@ -1,0 +1,30 @@
+language: php
+
+sudo: false
+
+matrix:
+    include:
+        - php: 5.6
+    fast_finish: true
+
+cache:
+  directories:
+    - vendor/
+
+before_install:
+  - phpenv config-add ./tests/travis.ini
+  - composer self-update
+  - composer config github-oauth.github.com $GITHUB_TOKEN
+  - composer install --no-scripts --no-interaction
+  - composer dump-autoload -o
+
+before_cache:
+  - php bin/coveralls -v
+  - rm -rf build/
+  - rm vendor/autoload.php
+  - rm -rf vendor/composer
+
+script:
+  - phpunit -d memory_limit=1G
+  - mkdir -p build/cov
+  - bin/phpunit --testsuite oc-cover --coverage-clover build/logs/clover.xml
